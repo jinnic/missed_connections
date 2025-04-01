@@ -1,0 +1,40 @@
+body {
+  font-family: Arial, sans-serif;
+  padding: 20px;
+  max-width: 800px;
+  margin: auto;
+  background: #f7f7f7;
+}
+
+h1 {
+  text-align: center;
+}
+
+.filters {
+  display: flex;
+  gap: 1em;
+  margin-bottom: 20px;
+}
+
+#posts-container {
+  display: flex;
+  flex-direction: column;
+  gap: 1.5em;
+}
+
+.card {
+  background: white;
+  padding: 15px;
+  border: 1px solid #ccc;
+  border-radius: 6px;
+}
+
+.card h3 {
+  margin-top: 0;
+}
+
+.card a {
+  display: inline-block;
+  margin-top: 8px;
+  color: #0077cc;
+}
