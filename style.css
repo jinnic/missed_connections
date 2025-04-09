@@ -161,8 +161,13 @@ body {
 .panel-content h2 {
     margin-bottom: 20px;
     font-size: 2rem;
+    text-decoration: underline;
 }
 
+.panel-content h2:last-child {
+    tab-size: 24px;
+    border: 2px solid orange;
+}
 .panel-content p {
     margin-bottom: 15px;
     line-height: 1.6;
