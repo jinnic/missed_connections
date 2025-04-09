@@ -3,25 +3,53 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Missed Connections NYC</title>
+    <title>Missed Connections Galaxy</title>
     <link rel="stylesheet" href="style.css" />
-    <script src="main.js"></script>
   </head>
   <body>
-    <h1>🗽 Missed Connections NYC</h1>
+    <h1 class="title">Missed Connections Galaxy</h1>
+    <canvas id="canvas"></canvas>
+    <div class="cursor"></div>
 
-    <div class="filters">
-      <input type="text" id="search" placeholder="Search keyword..." />
-      <select id="locationFilter">
-        <option value="">All Locations</option>
-      </select>
-      <select id="sort">
-        <option value="newest">Sort: Newest</option>
-        <option value="oldest">Sort: Oldest</option>
-      </select>
+    <!-- Info button -->
+    <button class="panel-button info-button">i</button>
+
+    <!-- Info panel -->
+    <div class="panel info-panel">
+      <button class="panel-close">×</button>
+      <div class="panel-content">
+        <h2>Missed Connections Galaxy</h2>
+        <p>
+          This contemplative interpretation of New York City's missed connections
+          presents fleeting moments as gentle stars in the night sky.
+        </p>
+        <p>
+          Each phrase appears as a distinct fragment from someone's search for connection, 
+          visible for a few moments before fading away.
+        </p>
+        <p>
+          Move your cursor near any phrase to reveal the complete story. The story panel
+          will stay open until you close it using the × button.
+        </p>
+        <p>
+          Only 15 stories appear at once, each lingering for a moment before fading away,
+          occasionally replaced by another whisper from the vast collection of human encounters.
+        </p>
+      </div>
     </div>
 
-    <p id="results-count"></p>
-    <div id="posts-container"></div>
+    <!-- Detail panel -->
+    <div class="panel detail-panel">
+      <button class="panel-close">×</button>
+      <h3 class="detail-title"></h3>
+      <div class="detail-meta">
+        <span class="detail-date"></span>
+        <span class="detail-location"></span>
+      </div>
+      <div class="detail-content"></div>
+      <a class="detail-link" target="_blank">View Original Post</a>
+    </div>
+    
+    <script src="test.js"></script>
   </body>
 </html>
