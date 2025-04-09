@@ -5,9 +5,15 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Missed Connections Galaxy</title>
     <link rel="stylesheet" href="style.css" />
+    <link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css" 
+      integrity="sha256-p4NxAoJBhIIN+hmNHrzRCf9tD/miZyoHS5obTRR9BMY=" 
+      crossorigin="" />
+    <script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js" 
+        integrity="sha256-20nQCchB9co0qIjJZRGuk2/Z9VM+kNiyxNV1lvTlZBo=" 
+        crossorigin=""></script>
   </head>
   <body>
-    <h1 class="title">Missed Connections Galaxy</h1>
+    <h1 class="title">A Celestial Atlas of Almost-Meetings</h1>
     <canvas id="canvas"></canvas>
     <div class="cursor"></div>
 
@@ -18,22 +24,20 @@
     <div class="panel info-panel">
       <button class="panel-close">×</button>
       <div class="panel-content">
-        <h2>Missed Connections Galaxy</h2>
+        <h2>Constellations of Longing</h2>
         <p>
-          This contemplative interpretation of New York City's missed connections
-          presents fleeting moments as gentle stars in the night sky.
+          A reflective take on New York City's missed connections, 
+          this project turns each fleeting message into a star in the night sky. 
         </p>
         <p>
           Each phrase appears as a distinct fragment from someone's search for connection, 
           visible for a few moments before fading away.
         </p>
         <p>
-          Move your cursor near any phrase to reveal the complete story. The story panel
-          will stay open until you close it using the × button.
+          Hover over any phrase to bring up its complete story—the detail panel stays open until you click the × to close it.
         </p>
         <p>
-          Only 15 stories appear at once, each lingering for a moment before fading away,
-          occasionally replaced by another whisper from the vast collection of human encounters.
+          At any time, just 25 stories are visible, each lingering for a moment before fading and is replaced by another whisper.
         </p>
       </div>
     </div>
@@ -47,9 +51,10 @@
         <span class="detail-location"></span>
       </div>
       <div class="detail-content"></div>
+      <div class="detail-map"></div>
       <a class="detail-link" target="_blank">View Original Post</a>
     </div>
     
-    <script src="test.js"></script>
+    <script src="main.js"></script>
   </body>
 </html>

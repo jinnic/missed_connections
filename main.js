@@ -151,6 +151,35 @@ function createAllPhrases() {
   });
 }
 
+// Global variable to store the map instance
+let locationMap = null;
+
+// Initialize the map
+function initMap(container) {
+  // If a map already exists, remove it
+  if (locationMap) {
+    locationMap.remove();
+    locationMap = null;
+  }
+
+  // Create a new map centered on NYC
+  locationMap = L.map(container, {
+    center: [40.7128, -74.006], // NYC coordinates
+    zoom: 12,
+    zoomControl: false,
+    attributionControl: false,
+    dragging: false,
+  });
+
+  // Add a dark/muted tile layer that fits your design
+  L.tileLayer("https://{s}.basemaps.cartocdn.com/dark_all/{z}/{x}/{y}{r}.png", {
+    maxZoom: 19,
+    opacity: 0.7,
+  }).addTo(locationMap);
+
+  return locationMap;
+}
+
 // [NOT USED] Clear all existing phrases - reset button
 function clearAllPhrases() {
   // Remove all phrases from the page
@@ -483,18 +512,69 @@ function showDetailPanel(connection, element) {
   detailPanel.dataset.activeElementId = element.dataset.id;
 }
 
-// Fill the detail panel with content
+// Update the fillDetailPanel function to add a map
 function fillDetailPanel(panel, connection) {
   panel.querySelector(".detail-title").textContent = connection.title;
   panel.querySelector(".detail-date").textContent = formatDate(
     connection.date_posted
   );
   panel.querySelector(".detail-location").textContent =
-    connection.location || "New York"; // Defaults to NY since it's all from NYC Craigslist
+    connection.location || "New York";
   panel.querySelector(".detail-content").textContent = connection.post_text;
   panel.querySelector(".detail-link").href = connection.url;
   panel.querySelector(".detail-link").textContent = "View Original Post";
+
+  // After a short delay to ensure the panel is visible
+  setTimeout(() => {
+    // Get the map container
+    const mapContainer = panel.querySelector(".detail-map");
+
+    // Initialize the map
+    const map = initMap(mapContainer);
+    
+
+    // Check if we have location data
+    if (connection.coordinates) {
+      const [lat, lng ] = connection.coordinates.split(",");
+
+      if (!isNaN(lat) && !isNaN(lng)) {
+        // Set the map view to the post's location
+        map.setView([lat, lng], 15);
+        console.log(lat, lng);
+
+        // Add a marker for the exact location
+        const marker = L.marker([lat, lng], {
+          icon: L.divIcon({
+            className: "location-marker",
+            html: '<div class="marker-dot"></div>',
+            iconSize: [20, 20],
+            iconAnchor: [10, 10],
+          }),
+        }).addTo(map);
+
+      } else {
+        // Show generic NYC view if coordinates are invalid
+        map.setView([40.7128, -74.006], 12);
+      }
+    } else {
+      // Show generic NYC view if no coordinates
+      map.setView([40.7128, -74.006], 12);
+    }
+  }, 100);
 }
+
+// Fill the detail panel with content
+// function fillDetailPanel(panel, connection) {
+//   panel.querySelector(".detail-title").textContent = connection.title;
+//   panel.querySelector(".detail-date").textContent = formatDate(
+//     connection.date_posted
+//   );
+//   panel.querySelector(".detail-location").textContent =
+//     connection.location || "New York"; // Defaults to NY since it's all from NYC Craigslist
+//   panel.querySelector(".detail-content").textContent = connection.post_text;
+//   panel.querySelector(".detail-link").href = connection.url;
+//   panel.querySelector(".detail-link").textContent = "View Original Post";
+// }
 
 // *****Work in Progress
 // Position the detail panel - make sure it is inside the screen: still working on it.
