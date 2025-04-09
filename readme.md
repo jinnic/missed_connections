@@ -2,7 +2,7 @@
 
 A visualization that transforms New York City's Craigslist missed connections into a galaxy of fleeting moments and human encounters(at least that was the intention).
 
-![A Constellation of Longing Screenshot](missed-galaxy/missed-galaxy-nyc.png)
+![A Constellation of Longing Screenshot](missed-galaxy-nyc.png)
 -----
 ## Overview
 
