@@ -37,10 +37,4 @@ The visualization maintains a constant number of phrases (25 by default) on scre
   
 ## 🌐 Data Source
 
-The visualization loads missed connections data from:
-```
-https://jinnic.github.io/craigslist_scrape/data/craigslist_missed_connections.json
-```
-
-## Credits
-- Data source: Craigslist missed connections
+**Missed Connections** section of [Craigslist NYC](https://newyork.craigslist.org/search/mis)
