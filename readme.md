@@ -3,10 +3,12 @@
 A visualization that transforms New York City's Craigslist missed connections into a galaxy of fleeting moments and human encounters(at least that was the intention).
 
 ![A Constellation of Longing Screenshot](missed-galaxy-nyc.png)
+
 -----
 ## Overview
 
 A Constellation of Longing showcases small moments of connection in a simple, direct way. Each phrase offers a glimpse into someone's search for connection, appearing briefly before fading and being replaced by another longings.
+
 -----
 ## Features
 
@@ -14,14 +16,6 @@ A Constellation of Longing showcases small moments of connection in a simple, di
 - Move your cursor near any phrase to reveal its full story
 - **Self-Managing Lifecycle**: Each phrase manages its own lifetime, event handling, and cleanup
 - As older phrases fade away, new ones appear to maintain a constant galaxy of connections
-
-
-## 🌐 Data Source
-
-The visualization loads missed connections data from:
-```
-https://jinnic.github.io/craigslist_scrape/data/craigslist_missed_connections.json
-```
 
 ## 📦 How It Works
 
@@ -37,9 +31,16 @@ The visualization maintains a constant number of phrases (25 by default) on scre
 ## 🤔 Things to Work On and Think About
 
 - Implement dynamic adjustments when screen size changes during app runtime.
-- Fix glitchs - opacity of phrases after being clicked.
+- Fix glitch - opacity of phrases after being clicked.
 - Better Content Filtering - how to filter out advertisements and focus on genuinely poetic longing
 - Philosophical Consideration: The presence of "spammy" posts raises interesting questions about the nature of loneliness in digital spaces - are these also valid expressions of human connection-seeking behavior??
+  
+## 🌐 Data Source
+
+The visualization loads missed connections data from:
+```
+https://jinnic.github.io/craigslist_scrape/data/craigslist_missed_connections.json
+```
 
 ## Credits
 - Data source: Craigslist missed connections
